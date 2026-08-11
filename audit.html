@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creator Finder — API Client Information</title>
+    <meta name="description" content="Technical and operational information about Creator Finder, a private YouTube Data API v3 client developed by XOTOX STUDIO.">
+    <meta name="theme-color" content="#07090f">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Creator Finder — API Client Information">
+    <meta property="og:description" content="Purpose, access model, quota controls, and campaign workflow for the Creator Finder API client.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="index.html" aria-label="Creator Finder — Home"><span class="brand-mark" aria-hidden="true">CF</span><span class="brand-copy"><strong>Creator Finder</strong><small>XOTOX STUDIO</small></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span class="nav-toggle-lines" aria-hidden="true"></span></button>
+        <nav class="site-nav" id="main-nav" aria-label="Main navigation"><a href="index.html">Inicio</a><a href="privacy.html">Privacidad</a><a href="terms.html">Términos</a><a href="audit.html" aria-current="page">Información API</a><a href="contact.html">Contacto</a></nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <header class="content-hero">
+        <div class="container">
+          <span class="section-kicker">For API reviewers</span>
+          <h1>Creator Finder — <span class="gradient-text">API Client Information</span></h1>
+          <p>A transparent overview of the purpose, access model, data sources, quota controls, and human-reviewed workflow of the Creator Finder desktop application.</p>
+          <div class="content-meta"><span>REVIEW INFORMATION</span><span>PRIVATE / INTERNAL ACCESS</span><span>LAST UPDATED · 11 AUGUST 2026</span></div>
+        </div>
+      </header>
+
+      <div class="container audit-layout">
+        <nav class="legal-nav" aria-label="API information sections">
+          <span>On this page</span>
+          <a href="#identity">Client identity</a>
+          <a href="#purpose">Purpose</a>
+          <a href="#youtube-api">YouTube API</a>
+          <a href="#gmail-oauth">Gmail OAuth</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#quota">Quota request</a>
+          <a href="#controls">Controls</a>
+          <a href="#verification">Verification notes</a>
+        </nav>
+
+        <article class="prose">
+          <section id="identity">
+            <h2>1. API client identity</h2>
+            <div class="audit-facts">
+              <div class="audit-fact"><span>Application</span><strong>Creator Finder</strong></div>
+              <div class="audit-fact"><span>Developer</span><strong>XOTOX STUDIO</strong></div>
+              <div class="audit-fact"><span>Access</span><strong>Private / Internal</strong></div>
+              <div class="audit-fact"><span>API service</span><strong>YouTube Data API v3</strong></div>
+              <div class="audit-fact"><span>Deployment</span><strong>Local desktop application</strong></div>
+              <div class="audit-fact"><span>Public accounts</span><strong>Not available</strong></div>
+            </div>
+            <p>Creator Finder is a local application used by its independent developer. It is not a public SaaS product, does not provide public login or registration, and does not expose YouTube API Data or API credentials to third parties.</p>
+          </section>
+
+          <section id="purpose">
+            <h2>2. Purpose</h2>
+            <p>Creator Finder is used to discover and evaluate publicly available gaming creators for potential outreach relating to XOTOX STUDIO's own videogame campaigns.</p>
+            <p>The application helps the developer organize public channel and video information, manually review candidates, manage public professional contact routes, prepare communications, and track campaign status. Advanced suitability metrics based on YouTube API Data remain disabled unless and until the applicable YouTube derived-metrics approval is granted.</p>
+          </section>
+
+          <section id="youtube-api">
+            <h2>3. Why YouTube Data API v3 is used</h2>
+            <p>The API provides the public channel and video information needed to perform thematic discovery and candidate review in a consistent way. Source-code review of the current build confirmed this resource and method inventory:</p>
+            <ul>
+              <li><code>search.list</code> with <code>part=snippet</code>, a campaign query, <code>type=video</code> or <code>type=channel</code>, <code>order=relevance</code>, result limits and pagination; a relevance language may be supplied;</li>
+              <li><code>channels.list</code> with <code>part=snippet,statistics,contentDetails</code> for channel IDs, batched where possible;</li>
+              <li><code>playlistItems.list</code> with <code>part=contentDetails</code> for a channel's uploads playlist;</li>
+              <li><code>videos.list</code> with <code>part=snippet,statistics</code> for video IDs, batched where possible.</li>
+            </ul>
+            <p>YouTube access uses a developer API key. The reviewed build does not request a YouTube OAuth scope or access a reviewer's private YouTube account data.</p>
+            <p>Creator Finder does not sell or redistribute YouTube API Data, provide third-party access to it, or attempt to bypass quota restrictions. It obtains YouTube API Data only through the documented API methods above; it does not scrape YouTube or Google pages.</p>
+            <p>Provenance identifies YouTube-derived records separately from local campaign state. Non-authorized YouTube API Data is refreshed through the appropriate documented endpoint or invalidated/deleted no later than 30 days. Expired data is not displayed or used as current, including when quota prevents refresh. Independent campaign history, notes, approvals, and do-not-contact decisions are preserved.</p>
+          </section>
+
+          <section id="gmail-oauth">
+            <h2>4. Gmail OAuth scopes and functions</h2>
+            <p>Gmail is optional and uses incremental, contextual authorization. The current build requests exactly:</p>
+            <ul>
+              <li><code>https://www.googleapis.com/auth/gmail.compose</code>: list drafts to locate a campaign message by its RFC 822 Message-ID, retrieve minimal draft metadata, create a draft, and send a user-approved draft or message;</li>
+              <li><code>https://www.googleapis.com/auth/gmail.readonly</code>: retrieve a thread already identified by a locally stored campaign thread ID and inspect it for a reply.</li>
+            </ul>
+            <p><code>gmail.compose</code> is requested when the user connects draft/send functionality. <code>gmail.readonly</code> is requested separately only after the user activates reply tracking. Without read-only authorization, draft creation and explicit sending continue to work while reply tracking stays disabled. The reply feature inspects only locally identified campaign thread IDs and does not search the general inbox, mark mail read, move messages, or modify labels.</p>
+          </section>
+
+          <section id="workflow">
+            <h2>5. Campaign workflow</h2>
+            <div class="audit-flow" aria-label="Creator Finder campaign workflow">
+              <div><span>01</span><strong>Define a videogame campaign and relevant discovery themes</strong></div>
+              <div><span>02</span><strong>Run controlled thematic discovery through YouTube Data API</strong></div>
+              <div><span>03</span><strong>Filter and deduplicate channels, videos, and existing candidates</strong></div>
+              <div><span>04</span><strong>Manually review direct public information and candidate fit</strong></div>
+              <div><span>05</span><strong>Identify an appropriate public professional contact route</strong></div>
+              <div><span>06</span><strong>Review the candidate and proposed communication</strong></div>
+              <div><span>07</span><strong>Send only after an explicit user approval action</strong></div>
+              <div><span>08</span><strong>Track campaign status and, if authorized, related Gmail replies</strong></div>
+            </div>
+            <p>Gmail actions are limited to the scopes and functions listed above. Sending requires selected campaign recipients, approval, send mode, a confirmation checkbox, and the explicit confirmation text required by the application. Connecting a Google account or selecting candidates never sends mail. Reply checking is optional and limited to known campaign threads.</p>
+          </section>
+
+          <section id="quota">
+            <h2>6. Why additional quota is requested</h2>
+            <p>Creator Finder needs to discover multiple potentially relevant channels through thematic searches. Search operations are required because the developer does not begin with a fixed list of known channel IDs, and different videogame campaigns require different topics, languages, and creator niches.</p>
+            <p>The application already implements measures intended to reduce consumption:</p>
+            <ul>
+              <li><strong>cache:</strong> reuse previously retrieved information instead of repeating equivalent requests;</li>
+              <li><strong>deduplication:</strong> avoid processing the same channel, video, candidate, or contact repeatedly;</li>
+              <li><strong>batching:</strong> group compatible lookups when the API and workflow allow it;</li>
+              <li><strong>adaptive query selection:</strong> prioritize useful queries and stop low-value exploration;</li>
+              <li><strong>quota budgeting:</strong> limit campaign activity according to an explicit quota budget;</li>
+              <li><strong>stored data reuse:</strong> reuse compliant local data while it remains valid.</li>
+            </ul>
+            <p>Additional quota would allow the developer to complete legitimate discovery campaigns without attempting to avoid or circumvent YouTube's established limits. This page intentionally states no requested quota amount because no amount was available in the website brief.</p>
+          </section>
+
+          <section id="controls">
+            <h2>7. Data and outreach controls</h2>
+            <ul>
+              <li>Application data is held primarily in a local database on the developer's device.</li>
+              <li>Caching and deduplication reduce redundant API requests.</li>
+              <li>Campaign quota budgets constrain discovery activity.</li>
+              <li>Emails require explicit review and approval before sending.</li>
+              <li>Duplicate-contact and do-not-contact states help prevent repeated or inappropriate outreach.</li>
+              <li>Only public professional contact routes associated with the creator or their representative are intended for use.</li>
+              <li>Contacts are not extracted from YouTube API descriptions, comments, chat, or scraped YouTube/Google pages; creator-linked external public sites and manual entries are the permitted baseline sources.</li>
+              <li>Non-authorized YouTube API Data is refreshed or invalidated/deleted no later than 30 days and cannot be used as current after expiry.</li>
+              <li>Google Workspace user data is used only for the user-facing Gmail features described in the <a href="privacy.html">Privacy Policy</a>.</li>
+              <li>The settings privacy panel can revoke the Gmail token through Google's official endpoint, remove the local token and Gmail-derived local data, and erase a creator's local data by internal ID.</li>
+            </ul>
+            <div class="callout"><strong>Human review before outreach.</strong>Discovery, filters, selection, contact review, email preparation, approval, send mode, and final confirmation are separate steps. Autopilot does not send messages.</div>
+          </section>
+
+          <section id="verification">
+            <h2>8. Derived metrics and pre-submission notes</h2>
+            <h3>DERIVED METRICS</h3>
+            <p><strong>Advanced Creator Finder suitability metrics based on YouTube API Data remain disabled unless/until the applicable YouTube approval for derived metrics is granted.</strong></p>
+            <p>XOTOX STUDIO intends to request the applicable Analytics &amp; Reporting / Additional Derived Metrics authorization for future Game Match Score, horror gaming, gaming, indie, demo/content-type, gameplay, and activity/relevance categories. This page does not claim that authorization has been granted.</p>
+            <p>The method inventory, retention controls, contact-discovery restrictions, Gmail scopes, and user-facing deletion controls above were checked against the source code reviewed on 11 August 2026. The following external or submission-specific items remain:</p>
+            <ol>
+              <li>request and obtain YouTube approval before enabling any advanced derived metric;</li>
+              <li>complete any OAuth verification/security assessment Google requires for restricted Gmail scopes;</li>
+              <li>insert the configured quota amount and final public URLs in the official form;</li>
+              <li>replace screenshots that do not show the same compliance-gated, attributed build submitted for review.</li>
+            </ol>
+            <div class="callout"><strong>No approval claim.</strong>This page does not state or imply that Creator Finder is approved, verified, certified, endorsed, sponsored by, or affiliated with Google or YouTube.</div>
+          </section>
+
+          <section>
+            <h2>9. Official policies</h2>
+            <ul>
+              <li><a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service</a></li>
+              <li><a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" target="_blank" rel="noopener noreferrer">YouTube API Services Terms of Service</a></li>
+              <li><a href="https://developers.google.com/youtube/terms/developer-policies" target="_blank" rel="noopener noreferrer">YouTube API Services Developer Policies</a></li>
+              <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+              <li><a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a></li>
+              <li><a href="https://developers.google.com/workspace/workspace-api-user-data-developer-policy" target="_blank" rel="noopener noreferrer">Google Workspace API User Data and Developer Policy</a></li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">CF</span><span class="brand-copy"><strong>Creator Finder</strong><small>XOTOX STUDIO</small></span></a><p>Private creator discovery and outreach management tool for videogame campaigns.</p></div>
+        <nav class="footer-links" aria-label="Footer links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="audit.html">API Information</a><a href="contact.html">Contact</a></nav>
+      </div>
+      <div class="container footer-bottom"><span>© 2026 XOTOX STUDIO</span><span>Creator Finder is not affiliated with, endorsed by, or sponsored by YouTube or Google.</span></div>
+    </footer>
+  </body>
+</html>

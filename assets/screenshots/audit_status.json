@@ -1,0 +1,11 @@
+{
+  "matches_current_build": true,
+  "reviewed_at": "2026-08-11",
+  "reviewed_files": [
+    "dashboard.png",
+    "discovery.png",
+    "campaigns.png",
+    "quota.png"
+  ],
+  "reason": "Unedited screenshots supplied by the operator for the Creator Finder build submitted to audit. Source and destination SHA-256 hashes were verified after replacement."
+}
