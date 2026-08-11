@@ -3,36 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Creator Finder — Descubrimiento de creadores para videojuegos</title>
-    <meta name="description" content="Sitio oficial de Creator Finder, una herramienta privada de XOTOX STUDIO para descubrir y gestionar outreach de creadores de videojuegos.">
+    <title data-i18n="index.head.title">Creator Finder — Descubrimiento de creadores para videojuegos</title>
+    <meta name="description" content="Sitio oficial de Creator Finder, una herramienta privada de XOTOX STUDIO para descubrir y gestionar outreach de creadores de videojuegos." data-i18n-content="index.head.description">
     <meta name="theme-color" content="#07090f">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Creator Finder — XOTOX STUDIO">
-    <meta property="og:description" content="Herramienta interna para descubrimiento y gestión de outreach de creadores de videojuegos.">
+    <meta property="og:title" content="Creator Finder — XOTOX STUDIO" data-i18n-content="index.head.ogTitle">
+    <meta property="og:description" content="Herramienta interna para descubrimiento y gestión de outreach de creadores de videojuegos." data-i18n-content="index.head.ogDescription">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/main.js" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <a class="skip-link" href="#contenido" data-i18n="common.skip">Saltar al contenido</a>
 
     <header class="site-header">
       <div class="container nav-shell">
-        <a class="brand" href="index.html" aria-label="Creator Finder — Inicio">
+        <a class="brand" href="index.html" aria-label="Creator Finder — Inicio" data-i18n-aria-label="common.brandHomeAria">
           <span class="brand-mark" aria-hidden="true">CF</span>
           <span class="brand-copy">
             <strong>Creator Finder</strong>
             <small>XOTOX STUDIO</small>
           </span>
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú" data-i18n-aria-label="common.openMenu">
           <span class="nav-toggle-lines" aria-hidden="true"></span>
         </button>
-        <nav class="site-nav" id="main-nav" aria-label="Navegación principal">
-          <a href="index.html" aria-current="page">Inicio</a>
-          <a href="privacy.html">Privacidad</a>
-          <a href="terms.html">Términos</a>
-          <a href="audit.html">Información API</a>
-          <a href="contact.html">Contacto</a>
+        <nav class="site-nav" id="main-nav" aria-label="Navegación principal" data-i18n-aria-label="common.mainNavigation">
+          <a href="index.html" aria-current="page" data-i18n="common.nav.home">Inicio</a>
+          <a href="privacy.html" data-i18n="common.nav.privacy">Privacidad</a>
+          <a href="terms.html" data-i18n="common.nav.terms">Términos</a>
+          <a href="audit.html" data-i18n="common.nav.api">Información API</a>
+          <a href="contact.html" data-i18n="common.nav.contact">Contacto</a>
         </nav>
       </div>
     </header>
@@ -41,39 +41,52 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Herramienta privada · Uso interno</p>
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> <span data-i18n="index.hero.eyebrow">Herramienta privada · Uso interno</span></p>
             <h1>Creator <span>Finder</span></h1>
-            <p class="hero-lead">
+            <p class="hero-lead" data-i18n="index.hero.lead">
               Herramienta interna para descubrimiento y gestión de outreach de creadores. Organiza datos públicos directos de canales y vídeos para revisión manual en campañas de videojuegos de XOTOX STUDIO.
             </p>
             <div class="hero-actions">
-              <a class="button" href="#como-funciona">Cómo funciona <span class="arrow" aria-hidden="true">→</span></a>
-              <a class="button button-secondary" href="audit.html">Información para revisores</a>
+              <a class="button" href="#como-funciona"><span data-i18n="index.hero.how">Cómo funciona</span> <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="button button-secondary" href="audit.html" data-i18n="index.hero.reviewers">Información para revisores</a>
             </div>
-            <p class="hero-note">
+            <p class="hero-note" data-i18n="index.hero.note">
               Creator Finder es actualmente una herramienta privada de uso interno y no está disponible para acceso público.
             </p>
           </div>
 
-          <div class="system-panel" aria-label="Representación conceptual del flujo de Creator Finder">
+          <div class="system-panel" aria-label="Representación conceptual del flujo de Creator Finder" data-i18n-aria-label="index.panel.aria">
             <div class="panel-bar">
               <div class="panel-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <span class="panel-title">CAMPAIGN_DISCOVERY / CONCEPT</span>
+              <span class="panel-title" data-i18n="index.panel.title">DESCUBRIMIENTO_CAMPAÑA / CONCEPTO</span>
+            </div>
+            <div class="youtube-attribution" aria-label="Atribución de YouTube Data API" data-i18n-aria-label="index.youtube.aria">
+              <a class="youtube-brand-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir YouTube" data-i18n-aria-label="index.youtube.open">
+                <img src="assets/images/developed-with-youtube-sentence-case-light.png" width="700" height="250" alt="Developed with YouTube">
+              </a>
+              <div class="youtube-attribution-copy">
+                <p><strong data-i18n="index.youtube.uses">Creator Finder utiliza los servicios de YouTube Data API.</strong></p>
+                <p data-i18n="common.disclaimer">Creator Finder no está afiliado, respaldado ni patrocinado por YouTube o Google.</p>
+                <div class="youtube-policy-links">
+                  <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer" data-i18n="index.youtube.terms">Términos de YouTube</a>
+                  <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" target="_blank" rel="noopener noreferrer" data-i18n="index.youtube.apiTerms">Términos de YouTube API Services</a>
+                </div>
+              </div>
             </div>
             <div class="panel-body">
               <div class="panel-stats">
-                <div class="panel-stat"><small>FUENTE</small><strong class="cyan">API v3</strong></div>
-                <div class="panel-stat"><small>ACCESO</small><strong class="violet">LOCAL</strong></div>
-                <div class="panel-stat"><small>ESTADO</small><strong class="lime">PRIVADO</strong></div>
+                <div class="panel-stat"><small data-i18n="index.panel.source">FUENTE</small><strong class="cyan">API v3</strong></div>
+                <div class="panel-stat"><small data-i18n="index.panel.access">ACCESO</small><strong class="violet">LOCAL</strong></div>
+                <div class="panel-stat"><small data-i18n="index.panel.status">ESTADO</small><strong class="lime" data-i18n="index.panel.private">PRIVADO</strong></div>
               </div>
               <div class="signal-map" aria-hidden="true">
                 <div class="orbit"></div>
                 <div class="orbit orbit-two"></div>
                 <div class="signal-core">CF</div>
-                <span class="signal-label one">DISCOVERY</span>
-                <span class="signal-label two">FILTER</span>
-                <span class="signal-label three">REVIEW</span>
-                <span class="signal-label four">OUTREACH</span>
+                <span class="signal-label one" data-i18n="index.panel.discovery">DESCUBRIMIENTO</span>
+                <span class="signal-label two" data-i18n="index.panel.filter">FILTRO</span>
+                <span class="signal-label three" data-i18n="index.panel.review">REVISIÓN</span>
+                <span class="signal-label four" data-i18n="index.panel.outreach">CONTACTO</span>
               </div>
             </div>
           </div>
@@ -82,12 +95,12 @@
 
       <section class="status-strip" aria-labelledby="estado-titulo">
         <div class="container">
-          <h2 id="estado-titulo" class="visually-hidden" hidden>Estado de la aplicación</h2>
+          <h2 id="estado-titulo" class="visually-hidden" hidden data-i18n="index.status.heading">Estado de la aplicación</h2>
           <div class="status-grid">
-            <div class="status-item"><span>Application status</span><strong>Private / Internal Use</strong></div>
-            <div class="status-item"><span>API Client</span><strong>Creator Finder</strong></div>
-            <div class="status-item"><span>Developer</span><strong>XOTOX STUDIO</strong></div>
-            <div class="status-item"><span>Public access</span><strong>Not currently available</strong></div>
+            <div class="status-item"><span data-i18n="index.status.application">Estado de la aplicación</span><strong data-i18n="index.status.private">Privada / Uso interno</strong></div>
+            <div class="status-item"><span data-i18n="index.status.client">Cliente API</span><strong>Creator Finder</strong></div>
+            <div class="status-item"><span data-i18n="index.status.developer">Desarrollador</span><strong>XOTOX STUDIO</strong></div>
+            <div class="status-item"><span data-i18n="index.status.public">Acceso público</span><strong data-i18n="index.status.unavailable">No disponible actualmente</strong></div>
           </div>
         </div>
       </section>
@@ -96,13 +109,13 @@
         <div class="container">
           <div class="section-heading">
             <div>
-              <span class="section-kicker">01 / Capacidades</span>
-              <h2 id="capacidades-titulo">Del descubrimiento a una campaña revisada.</h2>
+              <span class="section-kicker" data-i18n="index.capabilities.kicker">01 / Capacidades</span>
+              <h2 id="capacidades-titulo" data-i18n="index.capabilities.title">Del descubrimiento a una campaña revisada.</h2>
             </div>
-            <p>Creator Finder reúne un flujo de trabajo local para explorar creadores, reducir trabajo repetido y preparar contactos de forma controlada.</p>
+            <p data-i18n="index.capabilities.lead">Creator Finder reúne un flujo de trabajo local para explorar creadores, reducir trabajo repetido y preparar contactos de forma controlada.</p>
           </div>
 
-          <div class="feature-grid">
+          <div class="feature-grid" data-i18n-html="index.capabilities.cards">
             <article class="feature-card"><span class="card-index">01</span><h3>Descubrimiento</h3><p>Localiza canales y vídeos públicos relacionados con temas de campaña.</p></article>
             <article class="feature-card"><span class="card-index">02</span><h3>Revisión de candidatos</h3><p>Aplica filtros directos configurados por el usuario y mantiene la decisión final bajo revisión humana.</p></article>
             <article class="feature-card"><span class="card-index">03</span><h3>Deduplicación</h3><p>Evita procesar repetidamente los mismos candidatos o contactos.</p></article>
@@ -119,13 +132,13 @@
         <div class="container">
           <div class="section-heading">
             <div>
-              <span class="section-kicker">02 / How it works</span>
-              <h2 id="flujo-titulo">Cómo funciona</h2>
+              <span class="section-kicker" data-i18n="index.workflow.kicker">02 / Cómo funciona</span>
+              <h2 id="flujo-titulo" data-i18n="index.workflow.title">Cómo funciona</h2>
             </div>
-            <p>Un proceso secuencial, asistido por datos públicos y con revisión humana antes de cualquier comunicación.</p>
+            <p data-i18n="index.workflow.lead">Un proceso secuencial, asistido por datos públicos y con revisión humana antes de cualquier comunicación.</p>
           </div>
 
-          <div class="workflow" aria-label="Flujo de trabajo de Creator Finder">
+          <div class="workflow" aria-label="Flujo de trabajo de Creator Finder" data-i18n-aria-label="index.workflow.aria" data-i18n-html="index.workflow.steps">
             <div class="workflow-step"><span>01</span><strong>YouTube Data API</strong></div>
             <div class="workflow-step"><span>02</span><strong>Descubrimiento</strong></div>
             <div class="workflow-step"><span>03</span><strong>Filtrado</strong></div>
@@ -136,7 +149,7 @@
             <div class="workflow-step"><span>08</span><strong>Outreach</strong></div>
           </div>
 
-          <div class="workflow-notes">
+          <div class="workflow-notes" data-i18n-html="index.workflow.notes">
             <div class="check-note"><span aria-hidden="true">✓</span><div><strong>Acción explícita.</strong> El envío de comunicaciones requiere la aprobación del usuario; conectar Gmail no autoriza envíos automáticos indiscriminados.</div></div>
             <div class="check-note"><span aria-hidden="true">✓</span><div><strong>Controles de contacto.</strong> La deduplicación y los estados de “no contactar” ayudan a evitar repeticiones y a respetar decisiones previas.</div></div>
           </div>
@@ -146,25 +159,25 @@
       <section class="section section-alt" aria-labelledby="api-titulo">
         <div class="container api-layout">
           <div class="api-copy">
-            <span class="section-kicker">03 / API use</span>
-            <h2 id="api-titulo">Uso de YouTube Data API</h2>
-            <p>Creator Finder utiliza YouTube Data API v3 para consultar información pública necesaria para descubrir y revisar manualmente canales y vídeos relacionados con campañas de videojuegos. Los datos se refrescan o invalidan/eliminan como máximo a los 30 días; las métricas avanzadas derivadas permanecen desactivadas mientras esperan la aprobación aplicable.</p>
-            <div class="tag-list" aria-label="Medidas de optimización">
-              <span class="tag">CACHING</span>
-              <span class="tag">DEDUPLICATION</span>
-              <span class="tag">BATCHING</span>
-              <span class="tag">QUOTA BUDGETS</span>
-              <span class="tag">DATA REUSE</span>
+            <span class="section-kicker" data-i18n="index.api.kicker">03 / Uso de API</span>
+            <h2 id="api-titulo" data-i18n="index.api.title">Uso de YouTube Data API</h2>
+            <p data-i18n="index.api.lead">Creator Finder utiliza YouTube Data API v3 para consultar información pública necesaria para descubrir y revisar manualmente canales y vídeos relacionados con campañas de videojuegos. Los datos se refrescan o invalidan/eliminan como máximo a los 30 días; las métricas avanzadas derivadas permanecen desactivadas mientras esperan la aprobación aplicable.</p>
+            <div class="tag-list" aria-label="Medidas de optimización" data-i18n-aria-label="index.api.optimization">
+              <span class="tag" data-i18n="index.api.cache">CACHÉ</span>
+              <span class="tag" data-i18n="index.api.deduplication">DEDUPLICACIÓN</span>
+              <span class="tag" data-i18n="index.api.batching">AGRUPACIÓN</span>
+              <span class="tag" data-i18n="index.api.budgets">PRESUPUESTOS DE CUOTA</span>
+              <span class="tag" data-i18n="index.api.reuse">REUTILIZACIÓN DE DATOS</span>
             </div>
             <div class="official-links">
-              <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service ↗</a>
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy ↗</a>
-              <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" target="_blank" rel="noopener noreferrer">YouTube API Services Terms of Service ↗</a>
+              <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer" data-i18n="index.api.youtubeTerms">Términos del Servicio de YouTube ↗</a>
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-i18n="index.api.googlePrivacy">Política de Privacidad de Google ↗</a>
+              <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" target="_blank" rel="noopener noreferrer" data-i18n="index.api.servicesTerms">Términos del Servicio de YouTube API Services ↗</a>
             </div>
           </div>
 
           <div class="api-principles">
-            <div class="principle-list">
+            <div class="principle-list" data-i18n-html="index.api.principles">
               <div class="principle"><span>01</span><div><strong>No venta de datos</strong><p>Creator Finder no vende datos obtenidos mediante YouTube API.</p></div></div>
               <div class="principle"><span>02</span><div><strong>Sin acceso para terceros</strong><p>No proporciona a terceros acceso a YouTube API Data ni a sus credenciales.</p></div></div>
               <div class="principle"><span>03</span><div><strong>Respeto a la cuota</strong><p>No intenta evitar ni eludir las cuotas establecidas por YouTube API.</p></div></div>
@@ -178,48 +191,48 @@
         <div class="container">
           <div class="section-heading">
             <div>
-              <span class="section-kicker">04 / Aplicación local</span>
-              <h2 id="capturas-titulo">Capturas de la aplicación</h2>
+              <span class="section-kicker" data-i18n="index.screenshots.kicker">04 / Aplicación local</span>
+              <h2 id="capturas-titulo" data-i18n="index.screenshots.title">Capturas de la aplicación</h2>
             </div>
-            <p>Capturas completas y sin editar de la compilación local preparada para auditoría, revisadas el 11 de agosto de 2026.</p>
+            <p data-i18n="index.screenshots.lead">Capturas completas y sin editar de la compilación local preparada para auditoría, revisadas el 11 de agosto de 2026.</p>
           </div>
 
           <div class="screenshot-grid">
             <figure class="screenshot-card">
               <div class="shot-media" data-screenshot>
-                <a class="shot-link" href="assets/screenshots/dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura completa del dashboard de Creator Finder">
-                  <img src="assets/screenshots/dashboard.png" alt="Dashboard de la compilación de Creator Finder preparada para auditoría" width="2517" height="1252" loading="lazy">
+                <a class="shot-link" href="assets/screenshots/dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura completa del dashboard de Creator Finder" data-i18n-aria-label="index.screenshots.dashboardAria">
+                  <img src="assets/screenshots/dashboard.png" alt="Dashboard de la compilación de Creator Finder preparada para auditoría" data-i18n-alt="index.screenshots.dashboardAlt" width="2517" height="1252" loading="lazy">
                 </a>
-                <div class="shot-placeholder"><div><span>IMAGEN NO DISPONIBLE</span>Dashboard</div></div>
+                <div class="shot-placeholder"><div data-i18n-html="index.screenshots.dashboardPlaceholder"><span>IMAGEN NO DISPONIBLE</span>Panel principal</div></div>
               </div>
-              <figcaption><strong>Dashboard</strong><code>dashboard.png</code></figcaption>
+              <figcaption><strong data-i18n="index.screenshots.dashboardLabel">Panel principal</strong><code>dashboard.png</code></figcaption>
             </figure>
             <figure class="screenshot-card">
               <div class="shot-media" data-screenshot>
-                <a class="shot-link" href="assets/screenshots/discovery.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura completa del descubrimiento de creadores">
-                  <img src="assets/screenshots/discovery.png" alt="Descubrimiento de creadores con atribución de YouTube" width="2510" height="1257" loading="lazy">
+                <a class="shot-link" href="assets/screenshots/discovery.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura completa del descubrimiento de creadores" data-i18n-aria-label="index.screenshots.discoveryAria">
+                  <img src="assets/screenshots/discovery.png" alt="Descubrimiento de creadores con atribución de YouTube" data-i18n-alt="index.screenshots.discoveryAlt" width="2510" height="1257" loading="lazy">
                 </a>
-                <div class="shot-placeholder"><div><span>IMAGEN NO DISPONIBLE</span>Creator Discovery</div></div>
+                <div class="shot-placeholder"><div data-i18n-html="index.screenshots.discoveryPlaceholder"><span>IMAGEN NO DISPONIBLE</span>Descubrimiento de creadores</div></div>
               </div>
-              <figcaption><strong>Creator Discovery</strong><code>discovery.png</code></figcaption>
+              <figcaption><strong data-i18n="index.screenshots.discoveryLabel">Descubrimiento de creadores</strong><code>discovery.png</code></figcaption>
             </figure>
             <figure class="screenshot-card">
               <div class="shot-media" data-screenshot>
-                <a class="shot-link" href="assets/screenshots/campaigns.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura completa de la gestión de campañas">
-                  <img src="assets/screenshots/campaigns.png" alt="Gestión de campañas de Creator Finder" width="2517" height="1260" loading="lazy">
+                <a class="shot-link" href="assets/screenshots/campaigns.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura completa de la gestión de campañas" data-i18n-aria-label="index.screenshots.campaignsAria">
+                  <img src="assets/screenshots/campaigns.png" alt="Gestión de campañas de Creator Finder" data-i18n-alt="index.screenshots.campaignsAlt" width="2517" height="1260" loading="lazy">
                 </a>
-                <div class="shot-placeholder"><div><span>IMAGEN NO DISPONIBLE</span>Campaign Management</div></div>
+                <div class="shot-placeholder"><div data-i18n-html="index.screenshots.campaignsPlaceholder"><span>IMAGEN NO DISPONIBLE</span>Gestión de campañas</div></div>
               </div>
-              <figcaption><strong>Campaign Management</strong><code>campaigns.png</code></figcaption>
+              <figcaption><strong data-i18n="index.screenshots.campaignsLabel">Gestión de campañas</strong><code>campaigns.png</code></figcaption>
             </figure>
             <figure class="screenshot-card">
               <div class="shot-media" data-screenshot>
-                <a class="shot-link" href="assets/screenshots/quota.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura completa de configuración, automatización y cuota de YouTube">
-                  <img src="assets/screenshots/quota.png" alt="Configuración, automatización y cuota de YouTube de Creator Finder" width="2513" height="1261" loading="lazy">
+                <a class="shot-link" href="assets/screenshots/quota.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura completa de configuración, automatización y cuota de YouTube" data-i18n-aria-label="index.screenshots.quotaAria">
+                  <img src="assets/screenshots/quota.png" alt="Configuración, automatización y cuota de YouTube de Creator Finder" data-i18n-alt="index.screenshots.quotaAlt" width="2513" height="1261" loading="lazy">
                 </a>
-                <div class="shot-placeholder"><div><span>IMAGEN NO DISPONIBLE</span>Quota Management</div></div>
+                <div class="shot-placeholder"><div data-i18n-html="index.screenshots.quotaPlaceholder"><span>IMAGEN NO DISPONIBLE</span>Gestión de cuota</div></div>
               </div>
-              <figcaption><strong>Quota Management</strong><code>quota.png</code></figcaption>
+              <figcaption><strong data-i18n="index.screenshots.quotaLabel">Gestión de cuota</strong><code>quota.png</code></figcaption>
             </figure>
           </div>
         </div>
@@ -228,12 +241,12 @@
       <section class="cta-band">
         <div class="container cta-panel">
           <div>
-            <span class="section-kicker">Transparencia</span>
-            <h2>Información preparada para una revisión técnica clara.</h2>
-            <p>Consulta el propósito, el acceso, el uso de cuota y el flujo de campaña del cliente API.</p>
+            <span class="section-kicker" data-i18n="index.cta.kicker">Transparencia</span>
+            <h2 data-i18n="index.cta.title">Información preparada para una revisión técnica clara.</h2>
+            <p data-i18n="index.cta.lead">Consulta el propósito, el acceso, el uso de cuota y el flujo de campaña del cliente API.</p>
           </div>
           <div class="cta-actions">
-            <a class="button" href="audit.html">Ver información API <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button" href="audit.html"><span data-i18n="index.cta.button">Ver información API</span> <span class="arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
@@ -243,18 +256,18 @@
       <div class="container footer-main">
         <div class="footer-brand">
           <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">CF</span><span class="brand-copy"><strong>Creator Finder</strong><small>XOTOX STUDIO</small></span></a>
-          <p>Herramienta privada para descubrimiento y gestión de outreach de creadores de videojuegos.</p>
+          <p data-i18n="common.footer.description">Herramienta privada para descubrimiento y gestión de outreach de creadores de videojuegos.</p>
         </div>
-        <nav class="footer-links" aria-label="Enlaces del pie">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
-          <a href="audit.html">API Information</a>
-          <a href="contact.html">Contacto</a>
+        <nav class="footer-links" aria-label="Enlaces del pie" data-i18n-aria-label="common.footerLinks">
+          <a href="privacy.html" data-i18n="common.footer.privacy">Política de Privacidad</a>
+          <a href="terms.html" data-i18n="common.footer.terms">Términos</a>
+          <a href="audit.html" data-i18n="common.footer.api">Información API</a>
+          <a href="contact.html" data-i18n="common.footer.contact">Contacto</a>
         </nav>
       </div>
       <div class="container footer-bottom">
         <span>© 2026 XOTOX STUDIO</span>
-        <span>Creator Finder is not affiliated with, endorsed by, or sponsored by YouTube or Google.</span>
+        <span data-i18n="common.disclaimer">Creator Finder no está afiliado, respaldado ni patrocinado por YouTube o Google.</span>
       </div>
     </footer>
   </body>

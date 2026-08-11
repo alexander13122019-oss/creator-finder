@@ -493,6 +493,73 @@ h1 {
   letter-spacing: 0.08em;
 }
 
+.youtube-attribution {
+  position: relative;
+  display: grid;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(4, 8, 14, 0.72);
+  grid-template-columns: minmax(118px, 145px) minmax(0, 1fr);
+}
+
+.youtube-brand-link {
+  display: block;
+  padding: 2px 5px;
+  border-radius: 8px;
+}
+
+.youtube-brand-link:hover,
+.youtube-brand-link:focus-visible {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.youtube-brand-link:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.youtube-brand-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.youtube-attribution-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.67rem;
+  line-height: 1.45;
+}
+
+.youtube-attribution-copy p + p {
+  margin-top: 2px;
+}
+
+.youtube-attribution-copy strong {
+  color: var(--text);
+  font-size: 0.72rem;
+}
+
+.youtube-policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  margin-top: 5px;
+}
+
+.youtube-policy-links a {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  text-decoration: none;
+}
+
+.youtube-policy-links a:hover {
+  text-decoration: underline;
+}
+
 .panel-body {
   padding: 22px;
 }
@@ -1477,6 +1544,8 @@ blockquote.disclosure {
   .hero-grid { gap: 42px; }
   h1 { font-size: clamp(2.75rem, 16vw, 4.4rem); }
   .panel-body { padding: 15px; }
+  .youtube-attribution { grid-template-columns: 1fr; }
+  .youtube-brand-link { width: min(170px, 100%); }
   .panel-stats { grid-template-columns: 1fr; }
   .signal-map { min-height: 215px; }
   .status-strip { padding-bottom: 64px; }
