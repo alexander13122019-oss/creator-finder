@@ -1,0 +1,36 @@
+[
+  {
+    "id": "later",
+    "name": "Later",
+    "category": "apps",
+    "route": "apps/later/",
+    "status": "active-development",
+    "package": "com.xotoxstudio.later",
+    "storeUrl": null
+  },
+  {
+    "id": "soundscape",
+    "name": "Soundscape",
+    "category": "apps",
+    "route": "apps/soundscape/",
+    "status": "active-development",
+    "package": "com.xotoxstudio.soundscape",
+    "storeUrl": null
+  },
+  {
+    "id": "noxen",
+    "name": "NOXEN",
+    "category": "games",
+    "route": "games/noxen/",
+    "status": "in-development",
+    "storeUrl": "https://store.steampowered.com/app/4773060/NOXEN/"
+  },
+  {
+    "id": "creator-finder",
+    "name": "Creator Finder",
+    "category": "tools",
+    "route": "tools/creator-finder/",
+    "status": "in-development",
+    "legacyRoutes": ["privacy.html", "terms.html", "audit.html", "contact.html"]
+  }
+]

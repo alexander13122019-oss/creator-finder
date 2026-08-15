@@ -1,0 +1,10 @@
+{
+  "name": "xotox-studio-public-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "node --check assets/js/studio.js && node --check assets/js/main.js && node scripts/validate-site.mjs",
+    "test": "node scripts/validate-site.mjs",
+    "build": "node scripts/validate-site.mjs"
+  }
+}
