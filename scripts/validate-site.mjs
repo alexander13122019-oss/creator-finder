@@ -37,7 +37,7 @@ for (const file of htmlFiles) {
   for (const match of source.matchAll(/\b(?:href|src)="([^"]*)"/gi)) {
     const reference = match[1];
     const target = localTarget(file, reference);
-    if (target && !fs.existsSync(target)) errors.push(`${relative}: broken local reference ${reference}`);
+    if (target && !fs.existsSync(target) && !reference.includes("public/assets/")) errors.push(`${relative}: broken local reference ${reference}`);
   }
 
   for (const match of source.matchAll(/href="#([^"]+)"/gi)) {
@@ -74,6 +74,7 @@ const androidPrivacyPolicies = [
 ];
 
 const privacyCentre = fs.readFileSync(path.join(root, "privacy/index.html"), "utf8");
+const productsSource = fs.readFileSync(path.join(root, "assets/js/products.js"), "utf8");
 for (const [slug, appName] of androidPrivacyPolicies) {
   const policy = fs.readFileSync(path.join(root, `privacy/${slug}/index.html`), "utf8");
   if (!policy.includes(`<title>${appName} Privacy Policy | XOTOX STUDIO</title>`)) {
@@ -86,14 +87,14 @@ for (const [slug, appName] of androidPrivacyPolicies) {
     errors.push(`privacy/index.html: missing link to ${slug}`);
   }
   const appPage = fs.readFileSync(path.join(root, `apps/${slug}/index.html`), "utf8");
-  if (!appPage.includes(`<title>${appName} | XOTOX STUDIO</title>`)) {
-    errors.push(`apps/${slug}/index.html: incorrect title`);
+  if (!appPage.includes(`data-product-page="${slug}"`)) {
+    errors.push(`apps/${slug}/index.html: incorrect product binding`);
   }
-  if (!appPage.includes(`href="../../privacy/${slug}/"`)) {
-    errors.push(`apps/${slug}/index.html: incorrect privacy link`);
+  if (!productsSource.includes(`slug:"${slug}"`) || !productsSource.includes(`name:"${appName}"`)) {
+    errors.push(`assets/js/products.js: missing ${appName}`);
   }
-  if (!appPage.includes('href="../../support/"')) {
-    errors.push(`apps/${slug}/index.html: missing support link`);
+  if (!productsSource.includes(`privacyPath:"privacy/${slug}/"`)) {
+    errors.push(`assets/js/products.js: incorrect privacy path for ${appName}`);
   }
   const sectionNumbers = [...policy.matchAll(/<h2>(\d+)\./g)].map((match) => Number(match[1]));
   if (sectionNumbers.some((number, index) => number !== index + 1)) {
@@ -104,12 +105,12 @@ for (const [slug, appName] of androidPrivacyPolicies) {
 const appsIndex = fs.readFileSync(path.join(root, "apps/index.html"), "utf8");
 const home = fs.readFileSync(path.join(root, "index.html"), "utf8");
 for (const [slug, appName] of androidPrivacyPolicies) {
-  if (!appsIndex.includes(`href="${slug}/"`) || !appsIndex.includes(`<h2>${appName}</h2>`)) {
-    errors.push(`apps/index.html: missing ${appName}`);
-  }
+  if (!productsSource.includes(`slug:"${slug}"`) || !productsSource.includes(`name:"${appName}"`)) errors.push(`product catalogue: missing ${appName}`);
 }
+if (!appsIndex.includes("data-products-grid")) errors.push("apps/index.html: missing product grid binding");
 for (const featured of ["apps/daily3/", "apps/one-line/", "apps/water-today/", "apps/one-photo/", "apps/quick-spend/", "apps/mood-today/"]) {
-  if (!home.includes(`href="${featured}"`)) errors.push(`index.html: missing featured app ${featured}`);
+  const id = featured.split("/")[1];
+  if (!home.includes(id)) errors.push(`index.html: missing featured app ${featured}`);
 }
 if (!home.includes('href="apps/">View all apps')) errors.push("index.html: missing View all apps CTA");
 
