@@ -108,7 +108,7 @@ for (const [slug, appName] of androidPrivacyPolicies) {
     errors.push(`apps/index.html: missing ${appName}`);
   }
 }
-for (const featured of ["apps/later/", "apps/soundscape/", "apps/daily3/", "apps/water-today/", "apps/one-photo/", "apps/quick-spend/"]) {
+for (const featured of ["apps/daily3/", "apps/one-line/", "apps/water-today/", "apps/one-photo/", "apps/quick-spend/", "apps/mood-today/"]) {
   if (!home.includes(`href="${featured}"`)) errors.push(`index.html: missing featured app ${featured}`);
 }
 if (!home.includes('href="apps/">View all apps')) errors.push("index.html: missing View all apps CTA");
