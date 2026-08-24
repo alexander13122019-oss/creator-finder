@@ -50,11 +50,45 @@ const requiredRoutes = [
   "apps/soundscape/index.html", "apps/soundscape/privacy/index.html", "apps/soundscape/support/index.html",
   "games/index.html", "games/noxen/index.html", "tools/index.html", "tools/creator-finder/index.html",
   "support/index.html", "contact/index.html", "privacy/index.html", "terms/index.html",
+  "privacy/daily3/index.html", "privacy/one-line/index.html", "privacy/water-today/index.html",
+  "privacy/habit-one/index.html", "privacy/fuel-log/index.html", "privacy/focus-25/index.html",
+  "privacy/routine-check/index.html", "privacy/expiry-keeper/index.html", "privacy/quick-spend/index.html",
+  "privacy/no-spend/index.html", "privacy/mood-today/index.html", "privacy/one-photo/index.html",
   "privacy.html", "terms.html", "audit.html", "contact.html"
 ];
 
 for (const route of requiredRoutes) {
   if (!fs.existsSync(path.join(root, route))) errors.push(`missing required route: ${route}`);
+}
+
+const androidPrivacyPolicies = [
+  ["daily3", "Daily 3"], ["one-line", "One Line"], ["water-today", "Water Today"],
+  ["habit-one", "Habit One"], ["fuel-log", "Fuel Log"], ["focus-25", "Focus 25"],
+  ["routine-check", "Routine Check"], ["expiry-keeper", "Expiry Keeper"],
+  ["quick-spend", "Quick Spend"], ["no-spend", "No Spend"],
+  ["mood-today", "Mood Today"], ["one-photo", "One Photo"]
+];
+
+const privacyCentre = fs.readFileSync(path.join(root, "privacy/index.html"), "utf8");
+for (const [slug, appName] of androidPrivacyPolicies) {
+  const policy = fs.readFileSync(path.join(root, `privacy/${slug}/index.html`), "utf8");
+  if (!policy.includes(`<title>${appName} Privacy Policy | XOTOX STUDIO</title>`)) {
+    errors.push(`privacy/${slug}/index.html: incorrect title`);
+  }
+  if (!policy.includes(`content="Privacy Policy for ${appName} by XOTOX STUDIO."`)) {
+    errors.push(`privacy/${slug}/index.html: incorrect meta description`);
+  }
+  if (!privacyCentre.includes(`href="${slug}/"`)) {
+    errors.push(`privacy/index.html: missing link to ${slug}`);
+  }
+  const sectionNumbers = [...policy.matchAll(/<h2>(\d+)\./g)].map((match) => Number(match[1]));
+  if (sectionNumbers.some((number, index) => number !== index + 1)) {
+    errors.push(`privacy/${slug}/index.html: non-sequential policy sections`);
+  }
+}
+
+if (!privacyCentre.includes("<h1 class=\"page-title\">Privacy Policies</h1>")) {
+  errors.push("privacy/index.html: missing Privacy Policies heading");
 }
 
 const criticalChecks = [
@@ -70,7 +104,20 @@ const criticalChecks = [
   ["apps/later/privacy/index.html", "later_pro"],
   ["apps/soundscape/privacy/index.html", "com.xotoxstudio.soundscape"],
   ["apps/soundscape/privacy/index.html", "soundscape_pro"],
-  ["apps/soundscape/privacy/index.html", "does not currently use Firebase Analytics or Firebase Crashlytics"]
+  ["apps/soundscape/privacy/index.html", "does not currently use Firebase Analytics or Firebase Crashlytics"],
+  ["privacy/daily3/index.html", "com.xotoxstudio.daily3"],
+  ["privacy/one-line/index.html", "com.xotoxstudio.oneline"],
+  ["privacy/water-today/index.html", "com.xotoxstudio.watertoday"],
+  ["privacy/habit-one/index.html", "com.xotoxstudio.habitone"],
+  ["privacy/fuel-log/index.html", "com.xotoxstudio.fuellog"],
+  ["privacy/focus-25/index.html", "com.xotoxstudio.focus25"],
+  ["privacy/routine-check/index.html", "com.xotoxstudio.routinecheck"],
+  ["privacy/expiry-keeper/index.html", "com.xotoxstudio.expirykeeper"],
+  ["privacy/quick-spend/index.html", "com.xotoxstudio.quickspend"],
+  ["privacy/no-spend/index.html", "com.xotoxstudio.nospend"],
+  ["privacy/mood-today/index.html", "com.xotoxstudio.moodtoday"],
+  ["privacy/one-photo/index.html", "com.xotoxstudio.onephoto"],
+  ["privacy/index.html", "Privacy Policies"]
 ];
 
 for (const [file, marker] of criticalChecks) {
