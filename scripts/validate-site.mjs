@@ -157,6 +157,26 @@ for (const forbidden of ["[CONTACT_EMAIL]", "[PON AQUÍ TU EMAIL]", "SCREENSHOT 
   if (allText.includes(forbidden)) errors.push(`forbidden placeholder found: ${forbidden}`);
 }
 
+for (const forbiddenLanguageMarker of ["data-language-option", "data-language-content", "lang=\"es\"", ">Español<"]) {
+  if (allText.includes(forbiddenLanguageMarker)) errors.push(`English-only site contains: ${forbiddenLanguageMarker}`);
+}
+
+const publicScripts = [
+  fs.readFileSync(path.join(root, "assets/js/main.js"), "utf8"),
+  fs.readFileSync(path.join(root, "assets/js/studio.js"), "utf8")
+].join("\n");
+if (/translatePage|creator-finder-legal-language|data-language-option/.test(publicScripts)) {
+  errors.push("public scripts still contain language-switching logic");
+}
+
+const publicStyles = [
+  fs.readFileSync(path.join(root, "assets/css/studio.css"), "utf8"),
+  fs.readFileSync(path.join(root, "assets/css/styles.css"), "utf8")
+].join("\n");
+if (/Segoe Print|Bradley Hand|Comic Sans|Impact|Arial Narrow|cursive/i.test(publicStyles)) {
+  errors.push("decorative or handwritten font declaration remains");
+}
+
 const projects = JSON.parse(fs.readFileSync(path.join(root, "data/projects.json"), "utf8"));
 for (const project of projects) {
   if (!fs.existsSync(path.join(root, project.route, "index.html"))) errors.push(`project route missing: ${project.route}`);
