@@ -54,6 +54,10 @@ const requiredRoutes = [
   "privacy/habit-one/index.html", "privacy/fuel-log/index.html", "privacy/focus-25/index.html",
   "privacy/routine-check/index.html", "privacy/expiry-keeper/index.html", "privacy/quick-spend/index.html",
   "privacy/no-spend/index.html", "privacy/mood-today/index.html", "privacy/one-photo/index.html",
+  "apps/daily3/index.html", "apps/one-line/index.html", "apps/water-today/index.html",
+  "apps/habit-one/index.html", "apps/fuel-log/index.html", "apps/focus-25/index.html",
+  "apps/routine-check/index.html", "apps/expiry-keeper/index.html", "apps/quick-spend/index.html",
+  "apps/no-spend/index.html", "apps/mood-today/index.html", "apps/one-photo/index.html",
   "privacy.html", "terms.html", "audit.html", "contact.html"
 ];
 
@@ -81,11 +85,33 @@ for (const [slug, appName] of androidPrivacyPolicies) {
   if (!privacyCentre.includes(`href="${slug}/"`)) {
     errors.push(`privacy/index.html: missing link to ${slug}`);
   }
+  const appPage = fs.readFileSync(path.join(root, `apps/${slug}/index.html`), "utf8");
+  if (!appPage.includes(`<title>${appName} | XOTOX STUDIO</title>`)) {
+    errors.push(`apps/${slug}/index.html: incorrect title`);
+  }
+  if (!appPage.includes(`href="../../privacy/${slug}/"`)) {
+    errors.push(`apps/${slug}/index.html: incorrect privacy link`);
+  }
+  if (!appPage.includes('href="../../support/"')) {
+    errors.push(`apps/${slug}/index.html: missing support link`);
+  }
   const sectionNumbers = [...policy.matchAll(/<h2>(\d+)\./g)].map((match) => Number(match[1]));
   if (sectionNumbers.some((number, index) => number !== index + 1)) {
     errors.push(`privacy/${slug}/index.html: non-sequential policy sections`);
   }
 }
+
+const appsIndex = fs.readFileSync(path.join(root, "apps/index.html"), "utf8");
+const home = fs.readFileSync(path.join(root, "index.html"), "utf8");
+for (const [slug, appName] of androidPrivacyPolicies) {
+  if (!appsIndex.includes(`href="${slug}/"`) || !appsIndex.includes(`<h2>${appName}</h2>`)) {
+    errors.push(`apps/index.html: missing ${appName}`);
+  }
+}
+for (const featured of ["apps/later/", "apps/soundscape/", "apps/daily3/", "apps/water-today/", "apps/one-photo/", "apps/quick-spend/"]) {
+  if (!home.includes(`href="${featured}"`)) errors.push(`index.html: missing featured app ${featured}`);
+}
+if (!home.includes('href="apps/">View all apps')) errors.push("index.html: missing View all apps CTA");
 
 if (!privacyCentre.includes("<h1 class=\"page-title\">Privacy Policies</h1>")) {
   errors.push("privacy/index.html: missing Privacy Policies heading");

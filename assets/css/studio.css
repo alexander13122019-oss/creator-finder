@@ -1202,3 +1202,60 @@ body::before {
   .legal-copy { width: calc(100vw - 32px); padding: 38px 24px; }
   .contact-link { font-size: clamp(1.2rem,6vw,2rem); overflow-wrap: anywhere; }
 }
+
+/* Compact app catalogue additions */
+.home-app-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: clamp(18px,2.4vw,34px);
+}
+.home-app-card {
+  position: relative;
+  display: flex;
+  min-height: 310px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(28px,3vw,42px);
+  background: var(--paper);
+  color: var(--paper-ink);
+  box-shadow: 0 18px 42px rgba(0,0,0,.3);
+  clip-path: polygon(.5% .5%,99% 0,100% 98%,0 100%);
+  transform: rotate(-.25deg);
+  transition: transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.home-app-card:nth-child(even) { transform: rotate(.3deg); }
+.home-app-card:hover { transform: translateY(-5px) rotate(0); box-shadow: 0 25px 56px rgba(0,0,0,.4); }
+.home-app-card .chalk-icon { --chalk: #25231f; }
+.home-app-card .project-type { color: var(--paper-ink); opacity: .58; }
+.home-app-card h3 { margin: 0 0 10px; color: var(--paper-ink); font-family: var(--chalk-font); font-size: clamp(1.7rem,2.6vw,2.4rem); }
+.home-app-card p:not(.project-type) { margin: 0; color: var(--paper-ink); opacity: .7; }
+.home-app-card .card-link { color: var(--paper-ink); }
+.home-apps-cta { display: flex; justify-content: center; padding-top: 44px; }
+.app-monogram {
+  display: grid;
+  width: 84px;
+  height: 84px;
+  place-items: center;
+  margin-bottom: 24px;
+  border: 3px solid currentColor;
+  border-radius: 8% 16% 10% 14%;
+  color: #292722;
+  font-family: var(--chalk-font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  transform: rotate(-2deg);
+}
+.listing-card .app-monogram { margin-bottom: 30px; }
+.product-icon .app-monogram { width: 96px; height: 96px; margin: 0; }
+
+@media (max-width: 1050px) {
+  .home-app-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 760px) {
+  .home-app-grid { grid-template-columns: 1fr; gap: 20px; }
+  .home-app-card { min-height: 280px; padding: 34px 28px; }
+  .home-apps-cta { justify-content: stretch; padding-top: 32px; }
+  .home-apps-cta .button { width: 100%; justify-content: space-between; }
+}
